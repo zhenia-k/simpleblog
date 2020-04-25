@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+ <div class="profile">
+
+     <form action ="/change_profile/" method="post">{% csrf_token %}
+
+             <p> логин:
+             {{ user_prof.user.username }}</p>
+            <p> имя:
+             {{ user_prof.firstname }}</p>
+             <hr>
+             <p>фамилия:
+             {{ user_prof.lastname }}</p>
+             <hr>
+             <p>дата рождения:
+             {{ user_prof.born_data }}</p>
+             <hr>
+             <p>cкайп:
+             {{ user_prof.skype }}</p>
+             <hr>
+             <p>о себе:
+                 {{ user_prof.text }}
+             </p>
+             <hr>
+             <p>ccылка на соц сети:
+             {{ user_prof.fb }} </p>
+             <hr>
+
+
+
+         <p><input type="submit"  value="редактировать профиль"></p>
+     </form>
+
+  </div>
+
+
+<div class="message-data">
+
+    <p>Cообщения</p>
+
+
+</div>
+
+<div class="message">
+
+    <form action ="/sending_message/" method="post">{% csrf_token %}
+
+            <p>отправитель:
+
+               {{ message_form.sender }}</p>
+
+           <p>выберите получателя:
+
+               {{ message_form.reciver }}</p>
+          <p>cooбщение:
+
+               {{  message_form.message }}</p>
+
+          <p><input type="submit" value="отправить"></p>
+
+      </form>
+
+</div>
+
+</body>
+</html>

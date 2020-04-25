@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="post-form">
+
+      <form action ="add_post/" method="post">{% csrf_token %}
+
+        <p>автор:
+             {{ form_post.user }}
+        <p>заголовок:
+             {{ form_post.title }}
+          <p>текст:
+          {{ form_post.text }}</p>
+          <p>придумайте url:
+              {{ form_post.slug }}</p>
+
+
+          <p><input type="submit" value="cоздать"></p>
+
+      </form>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div class="profile-change">
+
+        <form action ="/save_changes_profile/" method="post">{% csrf_token %}
+
+          <br>Пользователь:
+             {{ user_profile.user }}
+          <p>имя:
+              {{ user_profile.firstname }}</p>
+          <p>фамилия:
+              {{ user_profile.lastname }}</p>
+          <p>день рождения:
+              {{ user_profile.born_data }}</p>
+          <p>о себе:
+              {{ user_profile.text }}</p>
+          <p>skype: {{ user_profile.skype }}</p>
+          <p>cсылка на страницу в соц сети:
+             {{ user_profile.fb }}</p>
+
+          <p><input type="submit" value="изменить"></p>
+
+      </form>
+
+    </div>
+
+</body>
+</html>

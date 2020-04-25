@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Простой блог</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'simpleblog/css/style.css' %}">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container">
+        <nav class="navbar">
+
+            <a href="#" class="logo">
+            <h1>Простой Блог</h1>
+            </a>
+
+
+            {% if user.is_authenticated %}
+                <p>Привет, {{ user.username}}</p>
+
+                <p><a href="to_profile/">Профиль</a></p>
+                <p><a href="logout/">Выйти</a></p>
+                <p><a href=""></a>лс(количество непрочитанных сообщений)</p>
+            {% else %}
+
+                 <ul class="menu">
+                     <p><a href="new_user/">Регистрация</a></p>
+                     <p><a href="to_avtorization_form/">Авторизация</a></p>
+                </ul>
+            {% endif %}
+
+        </nav>
+    </div>
+</header>
+
+<div class="main">
+
+    <div class="container">
+
+        <div class="general-part">
+
+                {% for user in users %}
+                         <p><a href="profile/{{user.id}}">{{user.username}}</a></p>
+            <hr>
+                         <p>{% for post in user.post_set.all %}</p><br>
+
+                                       <p><small>{{post.create_date}}</small></p><br>
+                                       <a href="{% url 'post' post.slug  %}">{{post.title}}</a><br>
+
+                            {% endfor %}
+
+            <hr>
+              {% endfor %}
+
+            {% if user.is_authenticated %}
+
+
+                <a href="create_post/">cоздать пост</a>
+
+             {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

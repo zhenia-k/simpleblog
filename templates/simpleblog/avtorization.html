@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Простой блог</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'simpleblog/css/style.css' %}">
+</head>
+
+<body>
+
+
+<header class="header">
+    <div class="container">
+        <nav class="navbar">
+            <a href="#" class="logo">
+            <h1>Простой Блог</h1>
+            </a>
+
+             <ul class="menu">
+          <li><a href="new_user/">Регистрация</a></li>
+          <li><a href="to_avtorization_form/">Авторизация</a></li>
+
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="main">
+
+    <div class="container">
+
+        <div class="reg-form">
+            <form action ="/user_avtoriz/" method="post">
+                {% csrf_token %}
+
+
+                Авторизация<br>
+
+                <p>логин:</p>
+
+                <p><input type="text" name="login" placeholder="введите логин"></p>
+
+                        <p>пароль:</p>
+
+                <p><input type="password" name="password" placeholder="введите пароль" ></p><br>
+
+                <p><input class="button-avtoriz-user" type="submit"  value="войти"></p>
+
+                </form>
+
+        </div>
+
+        </div>
+
+        </div>
+
+</body>
+</html>

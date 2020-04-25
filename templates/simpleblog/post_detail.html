@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div class="post">
+       <p> {{ post.title }}</p>
+       <p><small>автор: {{ post.user }}</small></p>
+       <p><small>{{ post.create_date }}</small></p>
+
+       <p> {{ post.text }}</p>
+    <hr>
+        <h4>Комментарии</h4>
+`    {% if user.is_authenticated %}
+            {% for comment in comments %}
+         <p>{{ comment.text }}</p>
+        <small>добавлен:{{ comment.create_date }}</small><br>
+        <small>пользователь:{{ comment.user }}</small><br>
+        <small><a href="{% url 'delete_comment' comment.id  %}">удалить</a></small><br>
+            {% endfor %}
+
+     {% else %}
+        <p>чтобы прочесть комментарии авторизуйся:</p>
+        <p><a href="{% url 'avtorization_form'  %}"></a>авторизация</p>
+    {% endif %}
+
+
+
+
+
+</div>
+
+</body>
+</html>
